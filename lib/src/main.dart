@@ -21,8 +21,7 @@ class WordPressAPI {
     this.site, {
     this.wooCredentials,
     Dio? dio,
-  })  : assert(site != null),
-        _dio = dio ?? Dio();
+  }) : _dio = dio ?? Dio();
 
 // ***********************************************************
   // GET DATA FROM CUSTOM ENDPOINT //
@@ -54,11 +53,8 @@ class WordPressAPI {
     //********************* */
     // NAMESPACE DISCOVERY
     //******************** */
-    if (namespace != null) {
-      // CHECK IF NAMESPACE HAS A TRAILING SLASH
-      if (namespace.endsWith('/')) {
-        namespace = namespace.substring(0, namespace.length - 1).toLowerCase();
-      }
+    if (namespace.endsWith('/')) {
+      namespace = namespace.substring(0, namespace.length - 1).toLowerCase();
     }
 
     //************************
@@ -70,7 +66,6 @@ class WordPressAPI {
     //  SET WOOCOMMERCE CREDENTIALS
     // **********************************************
     if (wooCredentials != null) {
-      _dio.options.queryParameters ??= {};
       _dio.options.queryParameters.addAll({
         "consumer_key": wooCredentials!.consumerKey,
         "consumer_secret": wooCredentials!.consumerSecret

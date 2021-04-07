@@ -15,5 +15,5 @@ class WPResponse {
     this.data,
     this.meta,
     required this.statusCode,
-  }) : assert(statusCode != null);
+  });
 }
