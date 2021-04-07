@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 class ProductImage {
-  final int id;
-  final String createdAt;
-  final String updatedAt;
-  final String src;
-  final String title;
-  final String alt;
-  final int position;
+  final int? id;
+  final String? createdAt;
+  final String? updatedAt;
+  final String? src;
+  final String? title;
+  final String? alt;
+  final int? position;
   ProductImage({
     this.id,
     this.createdAt,
@@ -19,13 +19,13 @@ class ProductImage {
   });
 
   ProductImage copyWith({
-    int id,
-    String createdAt,
-    String updatedAt,
-    String src,
-    String title,
-    String alt,
-    int position,
+    int? id,
+    String? createdAt,
+    String? updatedAt,
+    String? src,
+    String? title,
+    String? alt,
+    int? position,
   }) {
     return ProductImage(
       id: id ?? this.id,
@@ -50,8 +50,8 @@ class ProductImage {
     };
   }
 
-  factory ProductImage.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory ProductImage.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return ProductImage();
 
     return ProductImage(
       id: map['id'],

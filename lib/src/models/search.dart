@@ -2,23 +2,23 @@ import 'dart:convert';
 
 class Search {
   ///Unique identifier for the object.
-  final int id;
+  final int? id;
 
   ///The title for the object.
-  final String title;
+  final String? title;
 
   ///URL to the object.
-  final String url;
+  final String? url;
 
   ///Object type.
   ///
   /// One of: "post"
-  final String type;
+  final String? type;
 
   ///Object subtype.
   ///
   /// One of: "post", "page"
-  final String subtype;
+  final String? subtype;
   Search({
     this.id,
     this.title,
@@ -28,11 +28,11 @@ class Search {
   });
 
   Search copyWith({
-    int id,
-    String title,
-    String url,
-    String type,
-    String subtype,
+    int? id,
+    String? title,
+    String? url,
+    String? type,
+    String? subtype,
   }) {
     return Search(
       id: id ?? this.id,
@@ -53,8 +53,8 @@ class Search {
     };
   }
 
-  factory Search.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory Search.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return Search();
 
     return Search(
       id: map['id'],
@@ -96,7 +96,7 @@ class Search {
   }
 }
 
-List<Search> parseSearches(dynamic data) {
+List<Search>? parseSearches(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

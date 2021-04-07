@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class TaxLine {
-  final int id;
-  final String rateId;
-  final String code;
-  final String title;
-  final String total;
-  final bool compound;
+  final int? id;
+  final String? rateId;
+  final String? code;
+  final String? title;
+  final String? total;
+  final bool? compound;
   TaxLine({
     this.id,
     this.rateId,
@@ -17,12 +17,12 @@ class TaxLine {
   });
 
   TaxLine copyWith({
-    int id,
-    String rateId,
-    String code,
-    String title,
-    String total,
-    bool compound,
+    int? id,
+    String? rateId,
+    String? code,
+    String? title,
+    String? total,
+    bool? compound,
   }) {
     return TaxLine(
       id: id ?? this.id,
@@ -45,8 +45,8 @@ class TaxLine {
     };
   }
 
-  factory TaxLine.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory TaxLine.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return TaxLine();
 
     return TaxLine(
       id: map['id']?.toInt(),

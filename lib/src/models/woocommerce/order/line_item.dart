@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 class LineItem {
-  final int id;
-  final String subtotal;
-  final String subtotalTax;
-  final String total;
-  final String totalTax;
-  final String price;
-  final int quantity;
-  final String taxClass;
-  final String name;
-  final int productId;
-  final String sku;
-  final List<dynamic> meta;
+  final int? id;
+  final String? subtotal;
+  final String? subtotalTax;
+  final String? total;
+  final String? totalTax;
+  final String? price;
+  final int? quantity;
+  final String? taxClass;
+  final String? name;
+  final int? productId;
+  final String? sku;
+  final List<dynamic>? meta;
   LineItem({
     this.id,
     this.subtotal,
@@ -29,18 +29,18 @@ class LineItem {
   });
 
   LineItem copyWith({
-    int id,
-    String subtotal,
-    String subtotalTax,
-    String total,
-    String totalTax,
-    String price,
-    int quantity,
-    String taxClass,
-    String name,
-    int productId,
-    String sku,
-    List<dynamic> meta,
+    int? id,
+    String? subtotal,
+    String? subtotalTax,
+    String? total,
+    String? totalTax,
+    String? price,
+    int? quantity,
+    String? taxClass,
+    String? name,
+    int? productId,
+    String? sku,
+    List<dynamic>? meta,
   }) {
     return LineItem(
       id: id ?? this.id,
@@ -75,8 +75,8 @@ class LineItem {
     };
   }
 
-  factory LineItem.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory LineItem.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return LineItem();
 
     return LineItem(
       id: map['id']?.toInt(),

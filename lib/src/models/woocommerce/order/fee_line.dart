@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class FeeLine {
-  final int id;
-  final String title;
-  final bool taxable;
-  final String taxClass;
-  final String total;
-  final String totalTax;
+  final int? id;
+  final String? title;
+  final bool? taxable;
+  final String? taxClass;
+  final String? total;
+  final String? totalTax;
   FeeLine({
     this.id,
     this.title,
@@ -17,12 +17,12 @@ class FeeLine {
   });
 
   FeeLine copyWith({
-    int id,
-    String title,
-    bool taxable,
-    String taxClass,
-    String total,
-    String totalTax,
+    int? id,
+    String? title,
+    bool? taxable,
+    String? taxClass,
+    String? total,
+    String? totalTax,
   }) {
     return FeeLine(
       id: id ?? this.id,
@@ -45,8 +45,8 @@ class FeeLine {
     };
   }
 
-  factory FeeLine.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory FeeLine.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return FeeLine();
 
     return FeeLine(
       id: map['id'],

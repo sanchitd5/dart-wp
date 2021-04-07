@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class ProductDefaultAttributes {
-  final int id;
-  final String name;
-  final String option;
+  final int? id;
+  final String? name;
+  final String? option;
   ProductDefaultAttributes({
     this.id,
     this.name,
@@ -11,9 +11,9 @@ class ProductDefaultAttributes {
   });
 
   ProductDefaultAttributes copyWith({
-    int id,
-    String name,
-    String option,
+    int? id,
+    String? name,
+    String? option,
   }) {
     return ProductDefaultAttributes(
       id: id ?? this.id,
@@ -30,8 +30,8 @@ class ProductDefaultAttributes {
     };
   }
 
-  factory ProductDefaultAttributes.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory ProductDefaultAttributes.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return ProductDefaultAttributes();
 
     return ProductDefaultAttributes(
       id: map['id'],

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class PaymentDetail {
-  final String methodId;
-  final String methodTitle;
-  final bool paid;
+  final String? methodId;
+  final String? methodTitle;
+  final bool? paid;
   PaymentDetail({
     this.methodId,
     this.methodTitle,
@@ -11,9 +11,9 @@ class PaymentDetail {
   });
 
   PaymentDetail copyWith({
-    String methodId,
-    String methodTitle,
-    bool paid,
+    String? methodId,
+    String? methodTitle,
+    bool? paid,
   }) {
     return PaymentDetail(
       methodId: methodId ?? this.methodId,
@@ -30,8 +30,8 @@ class PaymentDetail {
     };
   }
 
-  factory PaymentDetail.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory PaymentDetail.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return PaymentDetail();
 
     return PaymentDetail(
       methodId: map['method_id'],

@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class ShippingLine {
-  final int id;
-  final String methodId;
-  final String methodTitle;
-  final String total;
+  final int? id;
+  final String? methodId;
+  final String? methodTitle;
+  final String? total;
   ShippingLine({
     this.id,
     this.methodId,
@@ -13,10 +13,10 @@ class ShippingLine {
   });
 
   ShippingLine copyWith({
-    int id,
-    String methodId,
-    String methodTitle,
-    String total,
+    int? id,
+    String? methodId,
+    String? methodTitle,
+    String? total,
   }) {
     return ShippingLine(
       id: id ?? this.id,
@@ -35,8 +35,8 @@ class ShippingLine {
     };
   }
 
-  factory ShippingLine.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+  factory ShippingLine.fromMap(Map<String, dynamic>? map) {
+    if (map == null) return ShippingLine();
 
     return ShippingLine(
       id: map['id']?.toInt(),

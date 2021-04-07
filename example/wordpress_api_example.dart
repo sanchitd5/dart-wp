@@ -3,7 +3,7 @@ import 'package:wordpress_api/wordpress_api.dart';
 Future<void> main() async {
   final wp = WordPressAPI('dartwp.local');
   // Get multiple posts
-  final List<Post> posts = await wp.getJobs();
+  final List<Post> posts = await (wp.getJobs() as Future<List<Post>>);
   for (final post in posts) {
     print(post.id);
   }
